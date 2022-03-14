@@ -9,10 +9,6 @@ from selenium.webdriver.support.ui import Select
 import random
 from selenium.webdriver.chrome.options import Options
 
-# s = Service(executable_path='C:\Capstone Project\chromedriver.exe')
-# driver = webdriver.Chrome(service=s)
-
-
 options = Options()
 options.add_argument("--headless")
 options.add_argument("window-size=1400,1500")
@@ -24,6 +20,9 @@ options.add_argument("--disable-infobars")
 options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(options=options)
+
+# s = Service(executable_path='C:\Capstone Project\chromedriver.exe')
+# driver = webdriver.Chrome(service=s)
 
 def setUp():
     print(f'This AOS Test Start at : {datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'
@@ -442,11 +441,11 @@ def edit_user():
     driver.find_element(By.NAME, 'first_nameAccountDetails').clear()
     sleep(1)
     driver.find_element(By.NAME,'first_nameAccountDetails').send_keys('Anna')
-    sleep(1)
+    sleep(2)
     new_name = driver.find_element(By.NAME,'first_nameAccountDetails').text
-    sleep(1)
+    sleep(2)
     driver.find_element(By.ID,'save_btnundefined').click()
-    sleep(1)
+    sleep(2)
     assert driver.current_url == locators.my_account_url
     print('Edit Successful!!!.')
     print('')
